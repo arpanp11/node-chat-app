@@ -16,12 +16,17 @@ io.on('connection', (socket) => {
 
     socket.emit('newMessage', {
         from: 'dizy3586@gmail.com',
-        text: 'Hello, How are you all?',
+        text: 'Hello, This is DJ!!',
         createdAt: 093018
     });
 
     socket.on('createMessage', (message) => {
         console.log('createMessage', message);
+        io.emit('newMessage', {
+            from: 'dizy3586@gmail.com',
+            text: 'Hello, How are you all?',
+            createdAt: new Date().getTime()
+        });
     });
 
     socket.on('disconnect', () => {
