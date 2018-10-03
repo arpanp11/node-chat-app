@@ -23,8 +23,8 @@ io.on('connection', (socket) => {
     socket.on('createMessage', (message) => {
         console.log('createMessage', message);
         io.emit('newMessage', {
-            from: 'dizy3586@gmail.com',
-            text: 'Hello, How are you all?',
+            from: message.from,
+            text: message.text,
             createdAt: new Date().getTime()
         });
     });
